@@ -8,3 +8,4 @@ struct Receta {
 
 void ingresoRecetas(struct Receta recetas);
 void comprobarRecetas(struct Receta recetas);
+void ventaRecetas();

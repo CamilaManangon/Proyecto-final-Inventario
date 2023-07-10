@@ -94,17 +94,14 @@ int main(void){
             case 4:
             printf("1. Por receta medica\n");
             printf("2. Por medicamento\n");
-            printf("3. Carrito de compras\n");
             printf("4. Regresar al menu principal\n");
             printf("Ingrese una opcion: ");
-            scanf("%d", &opcion);
-            if (opcion == 1) {
-                //vender_por_receta();
-            } else if (opcion == 2) {
-                //vender_por_medicamento();
-            } else if (opcion == 3) {
-                //mostrar_carrito();
-            } else if (opcion == 4) {
+            scanf("%d", &opc1);
+            if (opc1 == 1) {
+                ventaRecetas();
+            } else if (opc1 == 2) {
+                ventaMedicamento();
+            } else if (opc1 == 4) {
                 break;
             } else {
                 printf("Opcion invalida. Intente nuevamente.\n");

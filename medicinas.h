@@ -10,5 +10,6 @@ struct Medicamento{
 
 void ingresoMedicinas(struct Medicamento inventario);
 void buscarMedicamento(struct Medicamento inventario);
+void ventaMedicamento();
 
 #endif

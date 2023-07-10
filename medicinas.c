@@ -64,19 +64,31 @@ void ventaMedicamento(){
     if (fp == NULL) {
         printf("No se ha podido abrir el archivo\n");
     } else{
-        printf("Ingrese principio activo del medicamento: ");
-        scanf("%s", princ);
-        while(fscanf(fp,"%s %s %s %d\n", principio, lote, venc, &cant_inv)==4){
-            if(strcmp(principio, princ)==0){
-                printf("Ingrese la cantidad que desea despachar: ");
-                scanf("%d", &cant);
-                if(cant>cant_inv){
-                    printf("No hay suficientes unidades en el inventario\n");
-                }else{
+        do{
+            printf("Ingrese principio activo del medicamento: ");
+            scanf("%s", princ);
 
+            while(fscanf(fp,"%s %s %s %d\n", principio, lote, venc, &cant_inv)==4){
+                if(strcmp(principio, princ)==0){
+                    printf("Ingrese la cantidad que desea despachar: ");
+                    scanf("%d", &cant);
+                    if(cant>cant_inv){
+                        printf("No hay suficientes unidades en el inventario\n");
+                    }else{
+                        cant_inv = cant_inv - cant;
+                        fseek(fp, -strlen(principio) - strlen(lote) - strlen(venc) - sizeof(int), SEEK_CUR);
+                        fprintf(fp,"%s %s %s %d\n", principio, lote, venc, cant_inv);
+                        printf("Venta realizada exitosamente.\n");
+                        break;
+                    }
+                }else{
+                    printf("Medicamento no disponible.\n");
                 }
             }
-        }
+            printf("Desea despachar otro medicamento? Ingrese 1(si) o 2(no)\n");
+            scanf("%d", &confirmacion);
+        }while(confirmacion != 2);
+
         fclose(fp);
     }
 }
