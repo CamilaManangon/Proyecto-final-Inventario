@@ -15,22 +15,20 @@ int main(void){
 
     do{
     
-    printf("1. Iniciar sesion\n2.Agregar o eliminar usuario\n3.Salir\n");
+    printf("1. Iniciar sesion\n2.Agregar o eliminar usuario\n");
     do{
             printf("Elija la opcion que desea realizar: ");
             scanf("%d",&opc);
-            if(opc<=0 && opc>3){
+            if(opc<=0 && opc>2){
                 printf("Opcion invalida\n");
             }
-    }while(opc<=0 && opc>3);
+    }while(opc<=0 && opc>2);
 
     switch(opc){
             case 1:
             printf("INICIO DE SESION\n");
             ingreso = inicioSesion();
-            if(ingreso == 1){
-                printf("\nMenu de opciones: \n");
-            }else{
+            if(ingreso == 0){
                 printf("No se ha podido ingresar al sistema\n");
             }
             break;
@@ -55,7 +53,7 @@ int main(void){
             }
             break;
             default:
-            printf("Ha salido del sistema\n");
+            printf("Opcion invalida\n");
             break;
         }
     }while(opc==2);
@@ -94,14 +92,14 @@ int main(void){
             case 4:
             printf("1. Por receta medica\n");
             printf("2. Por medicamento\n");
-            printf("4. Regresar al menu principal\n");
+            printf("3. Regresar al menu principal\n");
             printf("Ingrese una opcion: ");
             scanf("%d", &opc1);
             if (opc1 == 1) {
                 ventaRecetas();
             } else if (opc1 == 2) {
                 ventaMedicamento();
-            } else if (opc1 == 4) {
+            } else if (opc1 == 3) {
                 break;
             } else {
                 printf("Opcion invalida. Intente nuevamente.\n");

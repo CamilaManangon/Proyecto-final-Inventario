@@ -9,32 +9,31 @@ void ingresoUsuarios() {
     int resultado = 0;
 
     FILE *fp;
-    fp = fopen("usuarios.txt", "a+");
+    fp = fopen("usuarios.txt", "a+");//we open the file in a+ so we dont lose the information thats already on the file
     if (fp == NULL) {
         printf("No se ha podido abrir el archivo\n");
     } else {
         fflush(stdin);
         printf("Ingrese el usuario: ");
-        gets(usuario);
+        gets(usuario);//we use gets tu read all the string
         fflush(stdin);
 
         printf("Ingrese la contrasena: ");
         gets(contra);
         fflush(stdin);
 
-        while (fscanf(fp, "%s %s\n", usucomp, concomp) == 2) {
+        while (fscanf(fp, "%s %s\n", usucomp, concomp) == 2) {//read the file while it can scan those variables
             
+            //checking that the user does not exist in the file already
             if (strcmp(usuario, usucomp) == 0) {
                 printf("Nombre de usuario ya existente\n");
                 break;
             }
         }
-
         if (strcmp(usuario, usucomp) != 0) {
             fprintf(fp, "%s %s\n", usuario, contra);
             printf("Usuario ingresado correctamente.\n");
         }
-
         fclose(fp);
     }
 }
@@ -65,10 +64,9 @@ void eliminarUsuario(){
                 encontrado = 1;
             }
         }
-
         fclose(fp);
         fclose(fpnuevo);
-
+        //using temporal files to eliminate the user
         if(encontrado == 1){
             remove("usuarios.txt");
             rename("nuevo.txt", "usuarios.txt");
@@ -77,9 +75,6 @@ void eliminarUsuario(){
             remove("nuevo.txt");
             printf("No se encontró el usuario especificado.\n");
         }
-
-        
-
     }
 }
 
@@ -117,7 +112,7 @@ int inicioSesion(){
             }else{
                 intento = 3;
             }
-        }while(intento<3);
+        }while(intento<3);//try to login maximum 3 times
 
         if(ingreso == 0){
             printf("No se ha podido ingresar al sistema\n");
