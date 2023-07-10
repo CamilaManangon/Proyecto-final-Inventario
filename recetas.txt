@@ -1,0 +1,3 @@
+Numero de identificacion: 1
+Numero de medicamentos: 1
+Ibuprofeno 10
