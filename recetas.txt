@@ -1,9 +1,0 @@
-
-Numero de identificacion: 12
-Numero de medicamentos: 2
-Ibuprofeno 100
-Paracetamol 140
-Numero de identificacion: 10
-Numero de medicamentos: 2
-Ibuprofeno 10
-Paracetamol 5

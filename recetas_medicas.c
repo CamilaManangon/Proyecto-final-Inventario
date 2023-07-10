@@ -120,10 +120,6 @@ void ventaRecetas() {
                 }
             }
 
-            while (fgets(linea, sizeof(linea), fpRecetas) != NULL) {
-                fprintf(tempRec, "%s", linea);
-            }
-
             // while to copy all the elements of medicnas.txt to the new temporary file
             while (fgets(linea, sizeof(linea), fp) != NULL) {
                 fprintf(fpTemp, "%s", linea);
