@@ -74,10 +74,11 @@ void ventaRecetas() {
     char lote[50];
     char venc[50];
 
-    FILE *fpRecetas, *fp, *fpTemp;
+    FILE *fpRecetas, *fp, *fpTemp, *tempRec;
     fp = fopen("medicinas.txt", "r");
     fpRecetas = fopen("recetas.txt", "r");
     fpTemp = fopen("medicinas_temp.txt", "w");
+    tempRec = fopen("temporal.txt", "w");
     if (fpRecetas == NULL || fpTemp == NULL) {
         printf("No se ha podido abrir el archivo de recetas o el archivo temporal\n");
     } else {
@@ -119,6 +120,10 @@ void ventaRecetas() {
                 }
             }
 
+            while (fgets(linea, sizeof(linea), fpRecetas) != NULL) {
+                fprintf(tempRec, "%s", linea);
+            }
+
             // while to copy all the elements of medicnas.txt to the new temporary file
             while (fgets(linea, sizeof(linea), fp) != NULL) {
                 fprintf(fpTemp, "%s", linea);
@@ -127,9 +132,13 @@ void ventaRecetas() {
             fclose(fp);
             fclose(fpRecetas);
             fclose(fpTemp);
+            fclose(tempRec);
 
             remove("medicinas.txt");
             rename("medicinas_temp.txt", "medicinas.txt");
+
+            remove("recetas.txt");
+            rename("temporal.txt", "recetas.txt");
         } else {
             printf("La receta no se encuentra en el sistema.\n");
         }

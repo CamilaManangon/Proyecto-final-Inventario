@@ -1,12 +1,9 @@
-Numero de identificacion: 40
+
+Numero de identificacion: 12
+Numero de medicamentos: 2
+Ibuprofeno 100
+Paracetamol 140
+Numero de identificacion: 10
 Numero de medicamentos: 2
 Ibuprofeno 10
-Levoteroxina 10
-Numero de identificacion: 32
-Numero de medicamentos: 2
-Ibuprofeno 6
-Paracetamol 10
-Numero de identificacion: 30
-Numero de medicamentos: 2
-Ibuprofeno 5
-Paracetamol 6
+Paracetamol 5
